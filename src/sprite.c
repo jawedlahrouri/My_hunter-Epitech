@@ -23,6 +23,7 @@ sfSprite *create_sprite(char *filepath, int x, int y)
 void animate_sprite(sfSprite *sprite, int frame_count)
 {
     sfIntRect area = sfSprite_getTextureRect(sprite);
+
     area.left = (area.left + 110);
     if (area.left >= frame_count * 110)
         area.left = 0;
