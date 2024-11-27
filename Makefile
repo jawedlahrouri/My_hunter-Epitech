@@ -5,64 +5,34 @@
 ## makefile
 ##
 
-pathdir = src/lib
-
-
-NAME = libmy.a
-EXEC = my_ls
-
-
-
-SRC	=	src/open_window.c \
-		$(pathdir)/my_compute_power_rec.c \
-		$(pathdir)/my_compute_square_root.c \
-		$(pathdir)/my_isneg.c \
-		$(pathdir)/my_put_nbr.c \
-		$(pathdir)/my_putchar.c \
-		$(pathdir)/my_putstr.c \
-		$(pathdir)/my_revstr.c \
-		$(pathdir)/my_strcat.c \
-		$(pathdir)/my_strcpy.c \
-		$(pathdir)/my_strlen.c \
-		$(pathdir)/my_strncat.c \
-		$(pathdir)/my_strncpy.c \
-		$(pathdir)/flag_c.c \
-		$(pathdir)/flag_d.c \
-		$(pathdir)/flag_i.c \
-		$(pathdir)/flag_o.c \
-		$(pathdir)/flag_percent.c \
-		$(pathdir)/flag_s.c \
-		$(pathdir)/flag_x.c \
-		$(pathdir)/flag_x2.c \
-		$(pathdir)/my_printf.c \
+SRC	=	src/my_hunter.c \
+		src/window.c \
+		src/sprite.c \
+		src/event.c \
+		src/move_duck.c \
 
 OBJ  	=	 $(SRC:.c=.o)
 
-LIB_OBJ =  $(LIB:.c=.o)
+HUNTER = my_hunter
 
+CFLAGS = -Iinclude -lcsfml-graphics -lcsfml-window -lcsfml-audio \
+		-lcsfml-network -lcsfml-system
 
-$(NAME):	$(LIB_OBJ)
-		ar rcs $(NAME) $(LIB_OBJ)
-		$(MAKE) clean
-		gcc -g $(SRC) -Iinclude -L. -lmy -o $(EXEC)
+$(HUNTER): $(OBJ)
+		gcc $(OBJ) -o $(HUNTER) $(CFLAGS)
 
-$(EXEC): $(OBJ) $(NAME)
-		gcc -o $(EXEC) $(OBJ) -Iinclude -L -libmy
-
-all: 	$(NAME) $(EXEC)
-
-
+all: 	$(HUNTER)
 
 clean:
-		rm -f $(OBJ) $(LIB_OBJ)
-
+		rm -f $(OBJ)
 
 fclean: clean
-		rm -f $(NAME) $(TEST) $(OBJ)ç
+		rm -f $(HUNTER)
 
 re:
 		$(MAKE) fclean
 		$(MAKE) all
+
 debug:
 		$(MAKE) clean
-		gcc -g $(SRC) -Iinclude -L. -lmy -o $(EXEC)
+		gcc -g $(SRC) -o $(HUNTER) $(CFLAGS) 
