@@ -32,9 +32,12 @@ int clicked(sfSprite *sprite, sfRenderWindow *window)
         is_mouse_touch_duck(sprite, window));
 }
 
-void follow_mouse(sfSprite *hollow_purple, sfRenderWindow *window)
+void follow_mouse(sfSprite *mouse, sfRenderWindow *window)
 {
+    sfFloatRect bounds = sfSprite_getGlobalBounds(mouse);
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(window);
-    sfVector2f mouse_pos_f = {(mouse_pos.x) - 80, (mouse_pos.y) - 80};
-    sfSprite_setPosition(hollow_purple, mouse_pos_f);
+    sfVector2f sprite_pos = { (float)mouse_pos.x, (float)mouse_pos.y };
+
+    sfSprite_setOrigin(mouse, (sfVector2f) {bounds.width, bounds.height});
+    sfSprite_setPosition(mouse, sprite_pos);
 }
