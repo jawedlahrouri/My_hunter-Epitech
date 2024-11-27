@@ -32,13 +32,29 @@ void move_sprite(sfSprite *duck, sfSprite *mouse, sfRenderWindow *window)
 
 void click_event(sfSprite *duck, sfSprite *mouse, sfRenderWindow *window)
 {
+    sfSprite *falling_sprite = create_sprite("image/ded.png", 60, 110);
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(window);
     sfVector2f duck_pos = sfSprite_getPosition(duck);
     sfFloatRect duck_bounds = sfSprite_getGlobalBounds(duck);
+    float random_y = rand() % 985;
 
     if (sfMouse_isButtonPressed(sfMouseLeft)) {
         if (sfFloatRect_contains(&duck_bounds, mouse_pos.x, mouse_pos.y)) {
-            sfSprite_setPosition(duck, (sfVector2f){0, duck_pos.y});
+            sfSprite_setPosition(duck, (sfVector2f){0, random_y});
+            falling_duck(window, (sfVector2f){mouse_pos.x,
+                mouse_pos.y}, falling_sprite);
         }
+    }
+}
+
+void falling_duck(sfRenderWindow *window, sfVector2f start_pos,
+    sfSprite *falling_sprite)
+{
+    sfSprite_setPosition(falling_sprite, start_pos);
+    while (sfSprite_getPosition(falling_sprite).y < 1080) {
+        sfRenderWindow_clear(window, sfBlack);
+        sfSprite_move(falling_sprite, (sfVector2f){0, 100});
+        sfRenderWindow_drawSprite(window, falling_sprite, NULL);
+        sfRenderWindow_display(window);
     }
 }

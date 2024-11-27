@@ -44,7 +44,6 @@ int main(void)
     sfSprite *mouse = create_sprite("image/HOLLOW_PURPLE.png", 160, 160);
     sfSprite *background = create_sprite("image/shinjuku.png", 1734, 900);
 
-    sfSprite_setOrigin(mouse, (sfVector2f){80, 80});
     play_music("ogg/audio.ogg");
     game_loop(window, duck, mouse, background);
     destroy_sprite(duck, mouse, background, window);

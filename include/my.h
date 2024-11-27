@@ -33,5 +33,7 @@ int destroy_sprite(sfSprite *duck, sfSprite *mouse,
     sfSprite *background, sfRenderWindow *window);
 void follow_mouse(sfSprite *mouse, sfRenderWindow *window);
 void play_music(const char *filepath);
+void falling_duck(sfRenderWindow *window, sfVector2f start_pos,
+    sfSprite *falling_sprite);
 
 #endif /*my.h*/
