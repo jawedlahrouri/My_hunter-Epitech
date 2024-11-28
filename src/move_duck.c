@@ -13,7 +13,9 @@
 #include <SFML/Graphics/RenderWindow.h>
 #include "../include/my.h"
 #include <stdlib.h>
+#include <stdio.h>
 
+int score = 0;
 
 void move_sprite(sfSprite *duck, sfSprite *mouse, sfRenderWindow *window)
 {
@@ -43,6 +45,7 @@ void click_event(sfSprite *duck, sfSprite *mouse, sfRenderWindow *window)
             sfSprite_setPosition(duck, (sfVector2f){0, random_y});
             falling_duck(window, (sfVector2f){mouse_pos.x,
                 mouse_pos.y}, falling_sprite);
+        display_score();
         }
     }
 }
@@ -60,4 +63,10 @@ void falling_duck(sfRenderWindow *window, sfVector2f start_pos,
         sfRenderWindow_drawSprite(window, falling_sprite, NULL);
         sfRenderWindow_display(window);
     }
+}
+
+void display_score(void)
+{
+    score += 1;
+    my_printf("score: %d\n", score);
 }
