@@ -61,4 +61,4 @@ re:
 
 debug:
 		$(MAKE) clean
-		gcc -g $(SRC) -o $(HUNTER) $(CFLAGS) 
+		gcc -g $(SRC) -o $(HUNTER) $(CFLAGS)
