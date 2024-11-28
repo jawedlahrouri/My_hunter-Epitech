@@ -16,4 +16,5 @@ int my_isneg(int nb)
     } else {
         my_putchar('P');
     }
+    return 0;
 }

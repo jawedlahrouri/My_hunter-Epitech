@@ -10,8 +10,6 @@
 char *my_strncat(char *dest, char const *src, int n)
 {
     int lendest = my_strlen(dest);
-    int srclen = my_strlen(src);
-    int totallen = lendest + srclen;
     int ogn = n;
 
     for (int i = 0; n != 0; i++) {

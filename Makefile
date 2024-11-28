@@ -42,7 +42,7 @@ LIB_OBJ =  $(LIB:.c=.o)
 HUNTER = my_hunter
 
 CFLAGS = -Iinclude -L libmy -lcsfml-graphics -lcsfml-window -lcsfml-audio \
-		-lcsfml-network -lcsfml-system
+		-lcsfml-network -lcsfml-system -Wall
 
 $(HUNTER): $(OBJ)
 		gcc $(OBJ) -o $(HUNTER) $(CFLAGS)

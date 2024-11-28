@@ -9,14 +9,14 @@
 
 #ifndef MY_H
     #define MY_H
-#include <SFML/Graphics.h>
-#include <SFML/Window.h>
-#include <SFML/System.h>
-#include <SFML/Audio.h>
-#include <SFML/Network.h>
-#include <SFML/Graphics/RenderWindow.h>
-#include <stdio.h>
-#include <stdarg.h>
+    #include <SFML/Graphics.h>
+    #include <SFML/Window.h>
+    #include <SFML/System.h>
+    #include <SFML/Audio.h>
+    #include <SFML/Network.h>
+    #include <SFML/Graphics/RenderWindow.h>
+    #include <stdio.h>
+    #include <stdarg.h>
 int manage_events(sfRenderWindow *window, sfEvent *event);
 int is_mouse_touch_duck(sfSprite *sprite, sfRenderWindow *window);
 int clicked(sfSprite *sprite, sfRenderWindow *window);
@@ -26,7 +26,7 @@ void game_loop(sfRenderWindow *window, sfSprite *duck,
     sfSprite *mouse, sfSprite *background);
 int destroy_sprite(sfSprite *duck, sfSprite *mouse,
     sfSprite *background, sfRenderWindow *window);
-int main(int argc, char *argv);
+int main(int argc, char **argv);
 sfSprite *create_sprite(char *filepath, int x, int y);
 void animate_sprite(sfSprite *sprite, int frame_count);
 sfRenderWindow *create_window(int width, int height, char *title);
@@ -59,4 +59,5 @@ void flag_percent(va_list list);
 void flag_x2(va_list list);
 void flag_x(va_list list);
 int flag_detector(const char *format, int i, va_list list);
+int my_printf(const char *format, ...);
 #endif
