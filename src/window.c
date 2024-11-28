@@ -16,10 +16,11 @@
 sfRenderWindow *create_window(int width, int height, char *title)
 {
     sfVideoMode mode = {width, height, 32};
-    sfUint32 style = {sfClose | sfResize};
+    sfUint32 style = {sfClose};
     sfRenderWindow *window = sfRenderWindow_create(mode, title, style, NULL);
 
-    sfRenderWindow_setFramerateLimit(window, 10);
+    sfRenderWindow_setFramerateLimit(window, 60);
+    sfRenderWindow_setMouseCursorVisible(window, sfFalse);
     return window;
 }
 

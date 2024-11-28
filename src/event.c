@@ -35,9 +35,9 @@ int clicked(sfSprite *sprite, sfRenderWindow *window)
 void follow_mouse(sfSprite *mouse, sfRenderWindow *window)
 {
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(window);
-    sfVector2f sprite_pos = { (float)mouse_pos.x, (float)mouse_pos.y };
+    sfVector2f sprite_pos = (sfVector2f) { (float)mouse_pos.x-40, (float)mouse_pos.y-40 };
     sfFloatRect position = sfSprite_getGlobalBounds(mouse);
 
-    sfSprite_setOrigin(mouse, (sfVector2f) {position.width, position.height});
+    //sfSprite_setOrigin(mouse, (sfVector2f) {0, 0});
     sfSprite_setPosition(mouse, sprite_pos);
 }

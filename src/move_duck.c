@@ -19,7 +19,7 @@ void move_sprite(sfSprite *duck, sfSprite *mouse, sfRenderWindow *window)
     static int frame = 0;
     int animation_framerate = 3;
 
-    sfSprite_move(duck, (sfVector2f) {80, 0});
+    sfSprite_move(duck, (sfVector2f) {30, 0});
     if (sfSprite_getPosition(duck).x > 1920)
         sfSprite_setPosition(duck, (sfVector2f) {0, 0});
     sfRenderWindow_drawSprite(window, duck, NULL);
@@ -50,10 +50,13 @@ void click_event(sfSprite *duck, sfSprite *mouse, sfRenderWindow *window)
 void falling_duck(sfRenderWindow *window, sfVector2f start_pos,
     sfSprite *falling_sprite)
 {
+    sfSprite *background = create_sprite("image/background.png", 1734, 900);
+
     sfSprite_setPosition(falling_sprite, start_pos);
     while (sfSprite_getPosition(falling_sprite).y < 1080) {
         sfRenderWindow_clear(window, sfBlack);
-        sfSprite_move(falling_sprite, (sfVector2f){0, 100});
+        sfSprite_move(falling_sprite, (sfVector2f){0, 15});
+        sfRenderWindow_drawSprite(window, background, NULL);
         sfRenderWindow_drawSprite(window, falling_sprite, NULL);
         sfRenderWindow_display(window);
     }
