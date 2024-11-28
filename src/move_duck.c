@@ -26,7 +26,7 @@ void move_sprite(sfSprite *duck, sfSprite *mouse, sfRenderWindow *window)
     sfRenderWindow_drawSprite(window, mouse, NULL);
     sfRenderWindow_display(window);
     if (frame == 0)
-        animate_sprite(duck, 3);
+        animate_sprite(duck, 2);
     frame = (frame + 1) % animation_framerate;
 }
 
