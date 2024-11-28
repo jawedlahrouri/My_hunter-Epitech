@@ -38,17 +38,17 @@ int destroy_sprite(sfSprite *duck, sfSprite *mouse,
 
 int main(int argc, char *argv)
 {
-    if (argc == 2) {
-        if (argv[0] == '-' && argv[1] == 'h' && argv[2] == '\0') {
-        my_printf("CRADIT : Jawed Lahrouri");
-        return 0;
-        }
-    }
     sfRenderWindow *window = create_window(1734, 900, "AAAAARH");
     sfSprite *duck = create_sprite("image/duck.png", 110, 95);
     sfSprite *mouse = create_sprite("image/crosshair.png", 80, 80);
     sfSprite *background = create_sprite("image/background.png", 1734, 900);
 
+    if (argc == 2) {
+        if (argv[0] == '-' && argv[1] == 'h' && argv[2] == '\0') {
+        my_printf("CREDIT : Jawed Lahrouri");
+        return 0;
+        }
+    }
     play_music("ogg/sukuna.ogg");
     game_loop(window, duck, mouse, background);
     destroy_sprite(duck, mouse, background, window);
