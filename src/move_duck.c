@@ -12,6 +12,7 @@
 #include <SFML/Network.h>
 #include <SFML/Graphics/RenderWindow.h>
 #include "../include/my.h"
+#include <stdlib.h>
 
 
 void move_sprite(sfSprite *duck, sfSprite *mouse, sfRenderWindow *window)
