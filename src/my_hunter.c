@@ -47,8 +47,7 @@ int main(int argc, char **argv)
     if (argc == 2) {
         if (argv[1][0] == '-' && argv[1][1] == 'h' && argv[1][2] == '\0') {
         my_printf("CREDIT : Jawed Lahrouri\n");
-        my_printf("Bonus: there is a score system that display the number of");
-        my_printf("that you kill in your terminal.\n");
+        my_printf("commande: esc = close the game\n");
         return 0;
         }
     }
