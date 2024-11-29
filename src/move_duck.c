@@ -20,11 +20,12 @@ int score = 0;
 void move_sprite(sfSprite *duck, sfSprite *mouse, sfRenderWindow *window)
 {
     static int frame = 0;
-    int animation_framerate = 15;
+    int animation_framerate = 5;
+    float random_y = rand() % 800;
 
     sfSprite_move(duck, (sfVector2f) {20, 0});
     if (sfSprite_getPosition(duck).x > 1920)
-        sfSprite_setPosition(duck, (sfVector2f) {0, 0});
+        sfSprite_setPosition(duck, (sfVector2f) {0, random_y});
     sfRenderWindow_drawSprite(window, duck, NULL);
     sfRenderWindow_drawSprite(window, mouse, NULL);
     sfRenderWindow_display(window);
@@ -38,7 +39,7 @@ void click_event(sfSprite *duck, sfSprite *mouse, sfRenderWindow *window)
     sfSprite *falling_sprite = create_sprite("image/ded.png", 60, 110);
     sfVector2i mouse_pos = sfMouse_getPositionRenderWindow(window);
     sfFloatRect duck_bounds = sfSprite_getGlobalBounds(duck);
-    float random_y = rand() % 985;
+    float random_y = rand() % 800;
 
     if (sfMouse_isButtonPressed(sfMouseLeft)) {
         if (sfFloatRect_contains(&duck_bounds, mouse_pos.x, mouse_pos.y)) {
@@ -58,7 +59,7 @@ void falling_duck(sfRenderWindow *window, sfVector2f start_pos,
     sfSprite_setPosition(falling_sprite, start_pos);
     while (sfSprite_getPosition(falling_sprite).y < 1080) {
         sfRenderWindow_clear(window, sfBlack);
-        sfSprite_move(falling_sprite, (sfVector2f){0, 15});
+        sfSprite_move(falling_sprite, (sfVector2f){0, 30});
         sfRenderWindow_drawSprite(window, background, NULL);
         sfRenderWindow_drawSprite(window, falling_sprite, NULL);
         sfRenderWindow_display(window);
