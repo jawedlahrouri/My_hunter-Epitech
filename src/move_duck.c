@@ -15,8 +15,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int score = 0;
-
 void move_sprite(sfSprite *duck, sfSprite *mouse, sfRenderWindow *window)
 {
     static int frame = 0;
@@ -46,7 +44,6 @@ void click_event(sfSprite *duck, sfSprite *mouse, sfRenderWindow *window)
             sfSprite_setPosition(duck, (sfVector2f){0, random_y});
             falling_duck(window, (sfVector2f){mouse_pos.x,
                 mouse_pos.y}, falling_sprite);
-        display_score();
         }
     }
 }
@@ -54,7 +51,7 @@ void click_event(sfSprite *duck, sfSprite *mouse, sfRenderWindow *window)
 void falling_duck(sfRenderWindow *window, sfVector2f start_pos,
     sfSprite *falling_sprite)
 {
-    sfSprite *background = create_sprite("image/background.png", 1734, 900);
+    sfSprite *background = create_sprite("image/background.png", 1920, 1080);
 
     sfSprite_setPosition(falling_sprite, start_pos);
     while (sfSprite_getPosition(falling_sprite).y < 1080) {
@@ -64,10 +61,4 @@ void falling_duck(sfRenderWindow *window, sfVector2f start_pos,
         sfRenderWindow_drawSprite(window, falling_sprite, NULL);
         sfRenderWindow_display(window);
     }
-}
-
-void display_score(void)
-{
-    score += 1;
-    my_printf("score: %d\n", score);
 }

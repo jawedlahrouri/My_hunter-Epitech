@@ -16,8 +16,8 @@
 sfRenderWindow *create_window(int width, int height, char *title)
 {
     sfVideoMode mode = {width, height, 32};
-    sfUint32 style = {sfClose};
-    sfRenderWindow *window = sfRenderWindow_create(mode, title, style, NULL);
+    sfRenderWindow *window = sfRenderWindow_create(mode, title, sfClose
+        | sfFullscreen, NULL);
 
     sfRenderWindow_setFramerateLimit(window, 60);
     sfRenderWindow_setMouseCursorVisible(window, sfFalse);

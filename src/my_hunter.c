@@ -42,11 +42,13 @@ int main(int argc, char **argv)
     sfRenderWindow *window = create_window(1734, 900, "AAAAARH");
     sfSprite *duck = create_sprite("image/duck.png", 110, 95);
     sfSprite *mouse = create_sprite("image/crosshair.png", 80, 80);
-    sfSprite *background = create_sprite("image/background.png", 1734, 900);
+    sfSprite *background = create_sprite("image/background.png", 1920, 1080);
 
     if (argc == 2) {
         if (argv[1][0] == '-' && argv[1][1] == 'h' && argv[1][2] == '\0') {
-        my_printf("CREDIT : Jawed Lahrouri\nBONUS: there is a score system that display the number og meguduck that you kill in your terminal.\n");
+        my_printf("CREDIT : Jawed Lahrouri\n");
+        my_printf("Bonus: there is a score system that display the number of");
+        my_printf("that you kill in your terminal.\n");
         return 0;
         }
     }

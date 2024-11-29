@@ -14,6 +14,8 @@ int manage_events(sfRenderWindow *window, sfEvent *event)
             sfRenderWindow_close(window);
             return 1;
         }
+        if (sfKeyboard_isKeyPressed(sfKeyEscape))
+            sfRenderWindow_close(window);
     }
     return 0;
 }
