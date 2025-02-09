@@ -40,5 +40,5 @@ void follow_mouse(sfSprite *mouse, sfRenderWindow *window)
     sfVector2f sprite_pos = (sfVector2f) {(float)mouse_pos.x - 40,
         (float)mouse_pos.y - 40 };
 
-    sfSprite_setPosition(mouse ,sprite_pos);
+    sfSprite_setPosition(mouse, sprite_pos);
 }

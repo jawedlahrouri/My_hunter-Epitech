@@ -52,6 +52,8 @@ int main(int argc, char **argv)
         }
     }
     play_music("ogg/sukuna.ogg");
+    show_menu(window);
+    sfRenderWindow_setMouseCursorVisible(window, sfFalse);
     game_loop(window, duck, mouse, background);
     destroy_sprite(duck, mouse, background, window);
     return 0;

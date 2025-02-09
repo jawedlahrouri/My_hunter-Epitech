@@ -13,6 +13,7 @@ SRC	=	src/my_hunter.c \
 		src/sprite.c \
 		src/event.c \
 		src/move_duck.c \
+		src/menu.c \
 		$(pathdir)/my_compute_power_rec.c \
 		$(pathdir)/my_compute_square_root.c \
 		$(pathdir)/my_isneg.c \
