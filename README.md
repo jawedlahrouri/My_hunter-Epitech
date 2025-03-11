@@ -38,7 +38,7 @@ README.md               # This file
 ### Compilation
 Clone the repository:
 ```sh
-git clone https://github.com/jawedlahrouri/my_hunter-epitech.git
+git clone https://github.com/jawedlahrouri/My_hunter-Epitech.git
 cd my_hunter
 ```
 Compile the project:
