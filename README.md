@@ -28,7 +28,7 @@ To compile and run the project, follow the directory structure and commands belo
   ├── event.c           # Functions for handling user inputs
   ├── menu.c           # Functions for handling the start menu
   ├── move_duck.c           # Functions for handling sprite movement
-  ├── eventt.c           # Functions for handling the window
+  ├── window.c           # Functions for handling the window
 /image/                # Contains sprites, sounds, and other game resources
 /ogg/                  # Contains game music
 Makefile                # Compilation rules
